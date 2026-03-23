@@ -41,6 +41,7 @@ def load_data() -> pd.DataFrame:
     file_id = "1vKDGNyDM1BKhXYL_SSj0FP_JOlqrtrhP"
     url = f"https://drive.google.com/uc?export=download&id={file_id}"
     df = pd.read_parquet(url)
+    st.write(df.columns)   # 👈 ADD THIS LINE
     return df
 
     # ── Normalise dtypes ───────────────────────────────────────────────────────
