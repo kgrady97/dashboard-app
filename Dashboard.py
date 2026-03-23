@@ -37,8 +37,11 @@ def _ax(**kw): return dict(gridcolor=COLORS["grid"], zerolinecolor=COLORS["grid"
 LEGEND = dict(bgcolor="rgba(0,0,0,0)", font=dict(size=11))
 
 # ── Data Loading & Preprocessing ──────────────────────────────────────────────
-def load_data(path: str = "nyc_collisions_clean.parquet") -> pd.DataFrame:
-    df = pd.read_parquet(path)
+def load_data() -> pd.DataFrame:
+    file_id = "1vKDGNyDM1BKhXYL_SSj0FP_JOlqrtrhP"
+    url = f"https://drive.google.com/uc?export=download&id={file_id}"
+    df = pd.read_parquet(url)
+    return df
 
     # ── Normalise dtypes ───────────────────────────────────────────────────────
     # Arrow-backed StringDtype uses pd.NA which breaks groupby/str ops → cast to object
